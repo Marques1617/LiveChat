@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 
 import jakarta.servlet.http.HttpSession;
-import tech.buildrun.livechatms.Controller.UserController;
 import tech.buildrun.livechatms.model.Users;
 import tech.buildrun.livechatms.service.UserService;
 
@@ -36,22 +35,6 @@ public class PageController{
     public String loginPage() {
         return "login";
     }
-
-    // @PostMapping("/login")
-    // public String login(@RequestParam String username, @RequestParam String password,HttpSession session, Model model){
-    //     try {
-    //         if(userService.verify(new Users(username, password))) {
-    //             // store logged-in username in session
-    //             session.setAttribute("username", username);
-    //             return "chat"; // go to chat page
-    //         }
-    //     } catch (IllegalArgumentException e) {
-    //         model.addAttribute("error", e.getMessage());
-    //         return "login"; // reload login page with error message
-    //     }
-    //     model.addAttribute("error", "Login falhou");
-    //     return "login";       
-    // }
 
     @GetMapping("/chat")
     public String chat(Model model, Principal principal) { // Principal é injetado automaticamente pelo Spring Security

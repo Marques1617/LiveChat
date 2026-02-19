@@ -25,15 +25,15 @@ public class UserService {
         return true;
     }
 
-    // public boolean verify(Users users) {
-    //     Users user = userRepo.findByUsername(users.getUsername())
-    //         .orElseThrow(() -> new IllegalArgumentException("Invalid credentials"));
+    public boolean verify(Users users) {
+        Users user = userRepo.findByUsername(users.getUsername())
+            .orElseThrow(() -> new IllegalArgumentException("Invalid credentials"));
         
-    //     if (!passwordEncoder.matches(users.getPassword(), user.getPassword())) {
-    //         throw new IllegalArgumentException("Invalid credentials");
-    //     }
+        if (!passwordEncoder.matches(users.getPassword(), user.getPassword())) {
+            throw new IllegalArgumentException("Invalid credentials");
+        }
 
-    //     return true;
-    // }
+        return true;
+    }
     
 }

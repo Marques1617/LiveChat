@@ -1,5 +1,7 @@
 package tech.buildrun.livechatms.Controller;
 
+import java.security.Principal;
+
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
@@ -13,8 +15,8 @@ public class LiveChatController {
 
     @MessageMapping("/new-message")
     @SendTo("/topics/live-chat") //broadcast the message to all subscribers of the topic /topics/live-chat
-    public ChatOutput newMessage(ChatInput input){
-        return new ChatOutput(HtmlUtils.htmlEscape(input.user() + ": " + input.message()));
+    public ChatOutput newMessage(ChatInput input,Principal principal) {
+        return new ChatOutput(HtmlUtils.htmlEscape(principal.getName() + ": " + input.message()));
     }
     
 }

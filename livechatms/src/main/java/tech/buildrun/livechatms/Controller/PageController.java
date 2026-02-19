@@ -52,9 +52,9 @@ public class PageController{
     //     model.addAttribute("error", "Login falhou");
     //     return "login";       
     // }
-    @GetMapping("/chat")
-    public String chat(Model model, Principal principal) {
 
+    @GetMapping("/chat")
+    public String chat(Model model, Principal principal) { // Principal é injetado automaticamente pelo Spring Security
         model.addAttribute("username", principal.getName());
         return "chat";
     }

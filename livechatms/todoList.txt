@@ -5,8 +5,6 @@ Make a new page of the chat.
 
 https://u-topic-0.com
 
-
-
 TODO LIST
-make a new register page
+make errors message for the part of the login (Ex:login invalid, password invalid)
 make a new chat page 

@@ -43,7 +43,7 @@ function disconnect() {
 function sendMessage() {
     stompClient.publish({
         destination: "/app/new-message", // Send messages to the /app/new-message endpoint
-        body: JSON.stringify({'message': $("#message").val()}) //The username is verifyed on the backend using the Principal object, so we only need to send the message content
+        body: JSON.stringify({'message': $("#message").val()}) //The username is verified on the backend using the Principal object, so we only need to send the message content
                                                                 // so we dont need to send the username, the backend will handle that based on the authenticated user
     });
     $("#message").val("");

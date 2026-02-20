@@ -15,14 +15,20 @@ public class UserService {
 
     private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(12);
 
-    public boolean register(String username, String password) {
+    public int register(String username, String password, String confirmPassword) {
         if(userRepo.findByUsername(username).isPresent()) {
             System.out.println("Username already exists: " + username);
-            return false;
+            return 1; // Return 1 if username already exists
         }
+
+        if(!password.equals(confirmPassword)) {
+            System.out.println("Passwords do not match");
+            return 2; // Return 2 if passwords do not match
+        }
+
         Users user = new Users(username, passwordEncoder.encode(password)); // Hash the password before saving
         userRepo.save(user);
-        return true;
+        return 0; // Return 0 if registration is successful
     }
 
     public boolean verify(Users users) {

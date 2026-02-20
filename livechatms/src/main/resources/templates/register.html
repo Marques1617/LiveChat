@@ -164,28 +164,28 @@
         </div>
 
         <main class="form-register w-100 m-auto">
-        <form>
+        <form th:action="@{/register}" method="post">
             <img class="mb-4" src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" 
                 alt="Bootstrap Logo" width="72" height="57" />
             <h1 class="h3 mb-3 fw-normal">Create an account</h1>
 
             <div class="form-floating">
-            <input type="text" class="form-control" id="floatingName" placeholder="Full Name" required>
-            <label for="floatingName">Full Name</label>
+            <input type="text" name="username" class="form-control" id="floatingName" placeholder="Enter Username" required>
+            <label for="floatingName">Username</label>
             </div>
 
-            <div class="form-floating">
-            <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com" required>
+            <!-- <div class="form-floating">
+            <input type="email" name="username" class="form-control" id="floatingEmail" placeholder="name@example.com" required>
             <label for="floatingEmail">Email address</label>
-            </div>
+            </div> -->
 
             <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+            <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password" required>
             <label for="floatingPassword">Password</label>
             </div>
 
             <div class="form-floating">
-            <input type="password" class="form-control" id="floatingConfirmPassword" placeholder="Confirm Password" required>
+            <input type="password" name="confirmPassword" class="form-control" id="floatingConfirmPassword" placeholder="Confirm Password" required>
             <label for="floatingConfirmPassword">Confirm Password</label>
             </div>
 
@@ -197,9 +197,21 @@
             </div>
 
             <button class="btn btn-primary w-100 py-2" type="submit">Register</button>
+
+            <div class="alert alert-danger" role="alert" th:if="${error}">
+                <span th:text="${error}"></span>
+            </div>
+
+            <div class="alert alert-success" role="alert" th:if="${message}">
+                <span th:text="${message}"></span>
+            </div>
+
             <p class="mt-5 mb-3 text-body-secondary text-center">&copy; 2017–2025</p>
+
         </form>
         </main>
+
+       
 
         <script
         src="/js/bootstrap.bundle.min.js"

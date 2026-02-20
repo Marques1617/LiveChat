@@ -48,14 +48,28 @@ public class PageController{
     }
 
     @PostMapping("/register")
-    public String register(@RequestParam String username, @RequestParam String password, Model model){
-        boolean success = userService.register(username, password);
-        if(success){
-            model.addAttribute("message", "Registration successful! Please log in.");
-            return "login";
-        } else {
-            model.addAttribute("error", "Registration failed: Username already exists.");
-            return "register";
+    public String register(@RequestParam String username, @RequestParam String password, @RequestParam String confirmPassword, Model model){
+
+        int success = 0;
+
+        success = userService.register(username, password,confirmPassword);
+        //switch case para verificar o valor de success e retornar a mensagem de erro correspondente
+        switch (success) {
+            case 0:
+                System.out.println("Registration successful for user: " + username);
+                return "redirect:/login";
+            case 1:
+                System.out.println("Username already exists: " + username);
+                model.addAttribute("error", "Username already exists");
+                return "register";
+            case 2:
+                System.out.println("Passwords do not match");
+                model.addAttribute("error", "Passwords do not match");
+                return "register";
+            default:
+                System.out.println("Unknown error during registration");
+                model.addAttribute("error", "Unknown error during registration");
+                return "register";
         }
     }
 

@@ -27,7 +27,7 @@ public class SecurityConfig {
          return http
             .csrf(customizer -> customizer.disable()) // Desabilita a proteção CSRF (não recomendado para produção)
             .authorizeHttpRequests(request -> request
-                .requestMatchers("/register", "/login", "/css/**", "/js/**")// Permite acesso sem autenticação aos endpoints /register e /login  
+                .requestMatchers("/register", "/login", "/css/**", "/js/**","/bootstrap/**","/img/**")// Permite acesso sem autenticação aos endpoints /register e /login  
                 .permitAll() // Permite acesso sem autenticação ao endpoint /register e /login
                 .anyRequest().authenticated()) // Exige autenticação para todas as requisições
             .formLogin(form -> form 

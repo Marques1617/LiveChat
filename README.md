@@ -120,3 +120,6 @@ src/
  │        ├─ static/          # Javascript and Css
  │        └─ application.properties
 ```
+
+## License
+This project is licensed under the MIT License.

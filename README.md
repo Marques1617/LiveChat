@@ -28,8 +28,8 @@ User data is stored in a PostgreSQL database running inside a Docker container, 
 
 # Installation
 ## 1. Clone the repository
-   ``` git clone https://github.com/Marques1617/LiveChat.git ```
-   ```cd livechat```
+   ``` git clone https://github.com/Marques1617/LiveChat.git 
+   cd livechat```
 
 
 ## 2. Configure application proeprties

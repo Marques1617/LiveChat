@@ -110,28 +110,4 @@ src/
  │        ├─ templates/       # HTML Bootstrap templates
  │        ├─ static/          # Javascript and Css
  │        └─ application.properties
-``
-
-
-
-
-
-
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```

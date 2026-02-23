@@ -3,59 +3,65 @@ const stompClient = new StompJs.Client({
 });
 
 stompClient.onConnect = (frame) => {
-    setConnected(true);
     console.log('Connected: ' + frame);
-    stompClient.subscribe('/topics/live-chat', (message) => { // Listen for messages on the /topics/live-chat topic
-        updateLiveChat(JSON.parse(message.body).content);
+
+    stompClient.subscribe('/topics/live-chat', (message) => {
+        const data = JSON.parse(message.body);
+        updateLiveChat(data.content, data.sender);
     });
 };
 
 stompClient.onWebSocketError = (error) => {
-    console.error('Error with websocket', error);
+    console.error('WebSocket error', error);
 };
 
 stompClient.onStompError = (frame) => {
-    console.error('Broker reported error: ' + frame.headers['message']);
-    console.error('Additional details: ' + frame.body);
+    console.error('Broker error: ' + frame.headers['message']);
+    console.error(frame.body);
 };
-
-function setConnected(connected) {
-    $("#connect").prop("disabled", connected);
-    $("#disconnect").prop("disabled", !connected);
-    if (connected) {
-        $("#conversation").show();
-    }
-    else {
-        $("#conversation").hide();
-    }
-}
 
 function connect() {
     stompClient.activate();
 }
 
-function disconnect() {
-    stompClient.deactivate();
-    setConnected(false);
-    console.log("Disconnected");
-}
-
 function sendMessage() {
     stompClient.publish({
-        destination: "/app/new-message", // Send messages to the /app/new-message endpoint
-        body: JSON.stringify({'message': $("#message").val()}) //The username is verified on the backend using the Principal object, so we only need to send the message content
-                                                                // so we dont need to send the username, the backend will handle that based on the authenticated user
+        destination: "/app/new-message",
+        body: JSON.stringify({ message: document.getElementById("message").value })
     });
-    $("#message").val("");
 }
 
-function updateLiveChat(message) {
-    $("#livechat").append("<tr><td>" + message + "</td></tr>");
+function updateLiveChat(message, sender) {
+    const li = document.createElement("li");
+
+    li.innerHTML = `
+        <div class="d-flex ${sender === username ? 'justify-content-end' : 'justify-content-start'} mb-2">
+            <div class="p-2 rounded ${sender === username ? 'bg-primary text-white' : 'bg-light'}" 
+                 style="max-width: 70%">
+                <strong>${sender}</strong><br>
+                ${message}
+            </div>
+        </div>
+    `;
+
+    document.getElementById("livechat").appendChild(li);
+
+    const chatBox = document.getElementById("chat-box");
+    chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-$(function () {
-    $("form").on('submit', (e) => e.preventDefault());
-    $( "#connect" ).click(() => connect());
-    $( "#disconnect" ).click(() => disconnect());
-    $( "#send" ).click(() => sendMessage());
+// Form submit
+document.getElementById("messageForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const input = document.getElementById("message");
+    const content = input.value.trim();
+
+    if (content) {
+        sendMessage(content);
+        input.value = "";
+    }
 });
+
+// Auto connect when page loads
+connect();

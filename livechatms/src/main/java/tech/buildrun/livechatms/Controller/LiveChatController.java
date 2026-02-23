@@ -16,7 +16,12 @@ public class LiveChatController {
     @MessageMapping("/new-message")
     @SendTo("/topics/live-chat") //broadcast the message to all subscribers of the topic /topics/live-chat
     public ChatOutput newMessage(ChatInput input,Principal principal) {
-        return new ChatOutput(HtmlUtils.htmlEscape(principal.getName() + ": " + input.message()));
+
+        if (input == null || input.message() == null || principal == null) {
+            return new ChatOutput("system", "Invalid message");
+        }
+        String safeMessage = HtmlUtils.htmlEscape(input.message());
+        return new ChatOutput(principal.getName(), safeMessage);
     }
     
 }

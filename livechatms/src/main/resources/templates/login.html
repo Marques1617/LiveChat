@@ -190,7 +190,7 @@
       </ul>
     </div>
     <main class="form-signin w-100 m-auto">
-      <form th:action="@{/login}" method="post">
+      <form th:action="@{/login}" method="post"> <!-- Intercepted by Spring Security-->
         <img
           class="mb-4"
           src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" 
@@ -234,6 +234,11 @@
         <button class="btn btn-primary w-100 py-2" type="submit">
           Sign in
         </button>
+
+        <div th:if="${param.error}" class="alert alert-danger">
+            The email or password are incorrect or the account does not exist.
+        </div>
+
         <button type="button" onclick="window.location.href='/register'" class="btn btn-secondary w-100 py-2 mt-2">Register</button>
         <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2025</p>
       </form>

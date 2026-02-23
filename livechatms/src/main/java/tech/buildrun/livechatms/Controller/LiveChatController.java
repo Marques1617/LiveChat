@@ -1,4 +1,4 @@
-package tech.buildrun.livechatms.Controller;
+package tech.buildrun.livechatms.controller;
 
 import java.security.Principal;
 

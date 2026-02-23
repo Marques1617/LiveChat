@@ -12,19 +12,10 @@ User data is stored in a PostgreSQL database running inside a Docker container, 
 | Component        | Technology                       |
 |------------------|-----------------------------------|
 | Backend          | Java, SpringBoot, SpringSecurity               |
-| Frontend         | Html, JavaScript (STOMP over Websocket, BootStrap |
-| JavaScript        | Programming language - Frontend|
-| BootStrap         | FrontEnd Framework |
-| Spring Boot       | Application framework             |
-| Spring Security   | Authentication & Authorization    |
-| Postgres          | Database                        |
-| WebSocket               | Communication technology       |
-| STOMP        | Text Orientated Messaging Protocol |
-| Docker	    | Containerization                        |
-| Maven		    | Dependency management             |
-| Postman	    | API testing                       |
-| JUnit       | Tests                             |
-
+| Frontend         | Html, JavaScript (STOMP over Websocket, BootStrap) |
+| Database        | PostgreSQL (Dockerized)|
+| Build Tools         | Maven or Gradle |
+| Containerization       | Docker             |
 
 # Installation
 

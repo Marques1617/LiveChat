@@ -2,20 +2,33 @@
 LiveChat is a real-time chat application built with Java Spring Boot and Spring Security for authentication. The frontend uses HTML templates with Bootstrap, and JavaScript handles real-time communication with the backend via WebSockets and STOMP.
 User data is stored in a PostgreSQL database running inside a Docker container, ensuring easy setup and portability. LiveChat supports secure, authenticated messaging in real time between multiple users.
 
+##Table of Contents
+
 ## ⚙ Technologies Used
 
 | Technology        | Description                       |
 |------------------|-----------------------------------|
-| Java 21           | Programming language              |
+| Java 21           | Programming language - Backend              |
+| HTML              | Programming Language -  Frontend |
+| JavaScript        | Programming language - Frontend|
+| BootStrap         | FrontEnd Framework |
 | Spring Boot       | Application framework             |
 | Spring Security   | Authentication & Authorization    |
+| Postgres          | Database                        |
 | WebSocket               | Communication technology       |
 | STOMP        | Text Orientated Messaging Protocol |
-| Docker	    | Database - Postgres                          |
+| Docker	    | Containerization                        |
 | Maven		    | Dependency management             |
-|Postman	    | API testing                       |
+| Postman	    | API testing                       |
 | JUnit       | Tests                             |
 
+#Installation
+1. Clone the repository
+   ``` git clone https://github.com/Marques1617/LiveChat.git ```
+   ```cd livechat```
+
+
+2. Configure application proeprties
 
 ## 🗄️ DataBase Configuration 
 
@@ -35,6 +48,8 @@ spring.jpa.properties.hibernate.format_sql=true
 spring.jpa.show-sql=true 
 ```
 
+3. Start PostgreSQL with Docker
+   
 ### Docker 
 - Docker-compose.yml
 ```
@@ -73,6 +88,16 @@ volumes:
 
 ### Connect with the database
 - \c <name_database>
+
+4. Build and run the application
+   ```bash
+   ./mvn clean install
+   ./mvn spring-boot:run
+   ```
+
+
+
+
 
     
     

@@ -105,7 +105,7 @@ volumes:
 - Start chatting in real time with other connected users.
 
 ## Architecture
-![LiveChat Architecture](./assets/livechat-architecture.png)
+![LiveChat Architecture](livechatms/assets/livechat-architecture.png)
 
 ## Project Structure
 ```

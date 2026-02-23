@@ -27,14 +27,16 @@ User data is stored in a PostgreSQL database running inside a Docker container, 
 
 
 # Installation
-## 1. Clone the repository
-   ``` git clone https://github.com/Marques1617/LiveChat.git 
-   cd livechat```
+
+## Clone the repository
+   ```git clone https://github.com/Marques1617/LiveChat.git ```
+   
+   ```cd livechat```
 
 
-## 2. Configure application proeprties
+## Configure application proeprties
 
-## 🗄️ DataBase Configuration 
+### 🗄️ DataBase Configuration 
 
 ### Application Properties 
 
@@ -52,7 +54,7 @@ spring.jpa.properties.hibernate.format_sql=true
 spring.jpa.show-sql=true 
 ```
 
-## 3. Start PostgreSQL with Docker
+## Start PostgreSQL with Docker
    
 ### Docker 
 - Docker-compose.yml
@@ -82,10 +84,10 @@ volumes:
 
 ```
 
-## Running the docker file (detached mode)
+### Running the docker file (detached mode)
 ```docker compose up -d ```
 
-## ️ Access the Container
+### ️ Access the Container
 ```docker exec -it <name_container> bash```
 ### Connect to the user
 - psql -U <user_name>
@@ -93,7 +95,7 @@ volumes:
 ### Connect with the database
 - \c <name_database>
 
-4. Build and run the application
+## Build and run the application
    ```bash
    ./mvn clean install
    ./mvn spring-boot:run

@@ -7,7 +7,10 @@ User data is stored in a PostgreSQL database running inside a Docker container, 
 - Installation
 - Running the application
 
-## ⚙ Technologies Used
+## ⚙ Tech Stack
+
+# Backend: 
+d
 
 | Technology        | Description                       |
 |------------------|-----------------------------------|

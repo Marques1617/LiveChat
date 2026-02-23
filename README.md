@@ -63,15 +63,15 @@ volumes:
 
 ```
 
-##Running the docker file (detached mode)
+## Running the docker file (detached mode)
 ```docker compose up -d ```
 
 ## ️ Access the Container
 ```docker exec -it <name_container> bash```
-# Connect to the user
+### Connect to the user
 - psql -U <user_name>
 
-# Connect with the database
+### Connect with the database
 - \c <name_database>
 
     

@@ -34,9 +34,7 @@ User data is stored in a PostgreSQL database running inside a Docker container, 
    ```cd livechat```
 
 
-## Configure application proeprties
-
-### 🗄️ DataBase Configuration 
+## Configure application properties
 
 ### Application Properties 
 
@@ -56,8 +54,8 @@ spring.jpa.show-sql=true
 
 ## Start PostgreSQL with Docker
    
-### Docker 
-- Docker-compose.yml
+### Docker-compose.yml
+
 ```
 services:
   db:
@@ -95,7 +93,7 @@ volumes:
 ### Connect with the database
 - \c <name_database>
 
-## Build and run the application
+### Build and run the application
    ```bash
    ./mvn clean install
    ./mvn spring-boot:run

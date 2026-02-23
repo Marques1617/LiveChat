@@ -3,9 +3,10 @@ LiveChat is a real-time chat application built with Java Spring Boot and Spring 
 User data is stored in a PostgreSQL database running inside a Docker container, ensuring easy setup and portability. LiveChat supports secure, authenticated messaging in real time between multiple users.
 
 ## Table of Contents
-- TechStack
-- Installation
-- Running the application
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+- [Running the application](#running-the-application)
+- [Project Structure](#project-structure)
 
 ## ⚙ Tech Stack
 

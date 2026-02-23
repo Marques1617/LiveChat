@@ -89,6 +89,29 @@ volumes:
    ./mvn clean install
    ./mvn spring-boot:run
    ```
+## Running the application
+- Open your browser and navigate to:
+  ``` http://localhost:8080```
+- Register a new user or log in with existing credentials.
+- Start chatting in real time with other connected users.
+
+## Project Structure
+```
+src/
+ ├─ main/
+ │   ├─ java/tech/buildrun/livechatms/
+ │   │    ├─ controller/      # WebSocket and REST controllers
+ │   │    ├─ domain/          # ChatInput, ChatOutput
+ │   │    ├─ repository/      # UserRepo
+ │   │    ├─ model/           # User entity & UserPrincipal
+ │   │    ├─ service          # User Service & MyUserDetailesService
+ │   │    └─ config/          # Spring Security & WebSocket configuration
+ │   └─ resources/
+ │        ├─ templates/       # HTML Bootstrap templates
+ │        ├─ static/          # Javascript and Css
+ │        └─ application.properties
+``
+
 
 
 

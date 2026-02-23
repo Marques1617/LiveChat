@@ -9,13 +9,10 @@ User data is stored in a PostgreSQL database running inside a Docker container, 
 
 ## ⚙ Tech Stack
 
-# Backend: 
-d
-
-| Technology        | Description                       |
+| Component        | Technology                       |
 |------------------|-----------------------------------|
-| Java 21           | Programming language - Backend              |
-| HTML              | Programming Language -  Frontend |
+| Backend          | Java, SpringBoot, SpringSecurity               |
+| Frontend         | Html, JavaScript (STOMP over Websocket, BootStrap |
 | JavaScript        | Programming language - Frontend|
 | BootStrap         | FrontEnd Framework |
 | Spring Boot       | Application framework             |

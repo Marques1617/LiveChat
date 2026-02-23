@@ -37,7 +37,7 @@ public class PageController{
     }
 
     @GetMapping("/chat")
-    public String chat(Model model, Principal principal) { // Principal é injetado automaticamente pelo Spring Security
+    public String chat(Model model, Principal principal) { // Principal is injected by Spring Security and contains the authenticated user's information
         model.addAttribute("username", principal.getName());
         return "chat";
     }
@@ -53,7 +53,7 @@ public class PageController{
         int success = 0;
 
         success = userService.register(username, password,confirmPassword);
-        //switch case para verificar o valor de success e retornar a mensagem de erro correspondente
+        //switch case to verify the success of the registration and return the appropriate error message to the user
         switch (success) {
             case 0:
                 System.out.println("Registration successful for user: " + username);

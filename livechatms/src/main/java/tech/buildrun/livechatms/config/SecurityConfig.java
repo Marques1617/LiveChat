@@ -25,16 +25,16 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
          return http
-            .csrf(customizer -> customizer.disable()) // Desabilita a proteção CSRF (não recomendado para produção)
+            .csrf(customizer -> customizer.disable()) // Disable CSRF protection for simplicity (not recommended for production)
             .authorizeHttpRequests(request -> request
-                .requestMatchers("/register", "/login", "/css/**", "/js/**","/bootstrap/**","/img/**","/brand/**")// Permite acesso sem autenticação aos endpoints /register e /login  
-                .permitAll() // Permite acesso sem autenticação ao endpoint /register e /login
-                .anyRequest().authenticated()) // Exige autenticação para todas as requisições
+                .requestMatchers("/register", "/login", "/css/**", "/js/**","/bootstrap/**","/img/**","/brand/**")// Allows access to the specified endpoints without authentication  
+                .permitAll() // Allows access to the specified endpoints without authentication
+                .anyRequest().authenticated()) // Requires authentication for any other request
             .formLogin(form -> form 
                 .loginPage("/login")
                 .failureUrl("/login?error")
                 .defaultSuccessUrl("/chat",true)
-                .permitAll()) // Configura a página de login personalizada e permite acesso a ela   
+                .permitAll()) // Configure form-based login with a custom login page and success/failure URLs
             .logout(logout -> logout
                 .logoutSuccessUrl("/login?logout")
             )

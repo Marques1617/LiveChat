@@ -104,6 +104,9 @@ volumes:
 - Register a new user or log in with existing credentials.
 - Start chatting in real time with other connected users.
 
+## Architecture
+![LiveChat Architecture](./assets/livechat-architecture.png)
+
 ## Project Structure
 ```
 src/

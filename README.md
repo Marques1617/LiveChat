@@ -2,7 +2,10 @@
 LiveChat is a real-time chat application built with Java Spring Boot and Spring Security for authentication. The frontend uses HTML templates with Bootstrap, and JavaScript handles real-time communication with the backend via WebSockets and STOMP.
 User data is stored in a PostgreSQL database running inside a Docker container, ensuring easy setup and portability. LiveChat supports secure, authenticated messaging in real time between multiple users.
 
-##Table of Contents
+## Table of Contents
+- TechStack
+- Installation
+- Running the application
 
 ## ⚙ Technologies Used
 
@@ -22,13 +25,14 @@ User data is stored in a PostgreSQL database running inside a Docker container, 
 | Postman	    | API testing                       |
 | JUnit       | Tests                             |
 
-#Installation
-1. Clone the repository
+
+# Installation
+## 1. Clone the repository
    ``` git clone https://github.com/Marques1617/LiveChat.git ```
    ```cd livechat```
 
 
-2. Configure application proeprties
+## 2. Configure application proeprties
 
 ## 🗄️ DataBase Configuration 
 
@@ -48,7 +52,7 @@ spring.jpa.properties.hibernate.format_sql=true
 spring.jpa.show-sql=true 
 ```
 
-3. Start PostgreSQL with Docker
+## 3. Start PostgreSQL with Docker
    
 ### Docker 
 - Docker-compose.yml

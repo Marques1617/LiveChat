@@ -15,7 +15,7 @@ public class UserService {
 
     private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(12);
 
-    public int register(String username, String password, String confirmPassword) {
+    public int register(String email, String username, String password, String confirmPassword) {
         if(userRepo.findByUsername(username).isPresent()) {
             System.out.println("Username already exists: " + username);
             return 1; // Return 1 if username already exists
@@ -26,7 +26,12 @@ public class UserService {
             return 2; // Return 2 if passwords do not match
         }
 
-        Users user = new Users(username, passwordEncoder.encode(password)); // Hash the password before saving
+        if(userRepo.findByEmail(email) != null) {
+            System.out.println("Email already exists: " + email);
+            return 3; // Return 3 if email already exists
+        }
+
+        Users user = new Users(email, username, passwordEncoder.encode(password)); // Hash the password before saving
         userRepo.save(user);
         return 0; // Return 0 if registration is successful
     }

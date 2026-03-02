@@ -48,11 +48,11 @@ public class PageController{
     }
 
     @PostMapping("/register")
-    public String register(@RequestParam String username, @RequestParam String password, @RequestParam String confirmPassword, Model model){
+    public String register(@RequestParam String email, @RequestParam String username, @RequestParam String password, @RequestParam String confirmPassword, Model model){
 
         int success = 0;
 
-        success = userService.register(username, password,confirmPassword);
+        success = userService.register(email,username, password,confirmPassword);
         //switch case to verify the success of the registration and return the appropriate error message to the user
         switch (success) {
             case 0:
@@ -66,6 +66,10 @@ public class PageController{
             case 2:
                 System.out.println("Passwords do not match");
                 model.addAttribute("error", "Passwords do not match");
+                return "register";
+            case 3:
+                System.out.println("Email already exists: " + email);
+                model.addAttribute("error", "Email already exists");
                 return "register";
             default:
                 System.out.println("Unknown error during registration");

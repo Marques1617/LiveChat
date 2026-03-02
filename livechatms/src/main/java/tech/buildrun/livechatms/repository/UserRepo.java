@@ -9,5 +9,7 @@ import tech.buildrun.livechatms.model.Users;
 public interface UserRepo extends JpaRepository<Users,Long> {
 
    Optional <Users> findByUsername(String username);
+
+   Users findByEmail(String email);
     
 }

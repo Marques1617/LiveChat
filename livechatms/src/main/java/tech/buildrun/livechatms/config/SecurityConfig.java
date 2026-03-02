@@ -32,6 +32,7 @@ public class SecurityConfig {
                 .anyRequest().authenticated()) // Requires authentication for any other request
             .formLogin(form -> form 
                 .loginPage("/login")
+                .usernameParameter("email") // Use "email" as the username parameter instead of the default "username", when processing the login form submission
                 .failureUrl("/login?error")
                 .defaultSuccessUrl("/chat",true)
                 .permitAll()) // Configure form-based login with a custom login page and success/failure URLs

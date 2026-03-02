@@ -23,7 +23,6 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     
 }
 
-
 // /topics -> messages that will be distributed to all subscribers of the topic (broadcast, managed by the stomp broker)
 
 // /app -> messages that will be sent from the client to the server and handled by @MessageMapping methods in the controller

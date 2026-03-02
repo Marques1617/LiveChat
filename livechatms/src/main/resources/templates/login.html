@@ -201,14 +201,15 @@
     
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
         <div class="form-floating">
+          <!-- or put name="username", so that Spring Security knows to use email instead of username -->
           <input
-            type="text"
-            name="username"
+            type="email"
+            name="email" 
             class="form-control"
             id="floatingInput"
             placeholder="name@example.com"
           />
-          <label for="floatingInput">Username</label>
+          <label for="floatingInput">Email</label>
         </div>
         <div class="form-floating">
           <input

@@ -4,7 +4,7 @@ const stompClient = new StompJs.Client({
 
 stompClient.onConnect = (frame) => {
     console.log('Connected: ' + frame);
-
+    setConnected(true);
     stompClient.subscribe('/topics/live-chat', (message) => {
         const data = JSON.parse(message.body);
         updateLiveChat(data.content, data.sender);
@@ -20,8 +20,20 @@ stompClient.onStompError = (frame) => {
     console.error(frame.body);
 };
 
+function setConnected(connected) {
+    document.getElementById("connect").classList.toggle("disabled", connected);
+    document.getElementById("disconnect").classList.toggle("disabled", !connected);
+}
+
 function connect() {
     stompClient.activate();
+}
+
+function disconnect() {
+    if (stompClient) {
+        stompClient.deactivate();
+        setConnected(false);
+    }
 }
 
 function sendMessage() {
@@ -63,5 +75,12 @@ document.getElementById("messageForm").addEventListener("submit", function (e) {
     }
 });
 
-// Auto connect when page loads
-connect();
+document.getElementById("connect").addEventListener("click", function (e) {
+    e.preventDefault();
+    connect();
+});
+
+document.getElementById("disconnect").addEventListener("click", function (e) {
+    e.preventDefault();
+    disconnect();
+});

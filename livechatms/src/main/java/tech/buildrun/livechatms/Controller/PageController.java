@@ -58,7 +58,7 @@ public class PageController{
             case 0:
                 System.out.println("Registration successful for user: " + username);
                 model.addAttribute("message", "Registration successful! Please log in.");
-                return "redirect:/login";
+                return "register";
             case 1:
                 System.out.println("Username already exists: " + username);
                 model.addAttribute("error", "Username already exists");

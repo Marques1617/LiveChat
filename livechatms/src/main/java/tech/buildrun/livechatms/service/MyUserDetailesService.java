@@ -12,6 +12,7 @@ import tech.buildrun.livechatms.repository.UserRepo;
 
 @Service
 public class MyUserDetailesService implements UserDetailsService {
+    
     @Autowired
     private UserRepo userRepo;
     

@@ -18,21 +18,17 @@
     <div class="card shadow-lg mx-auto" style="max-width: 700px; height: 80vh;">
 
         <!-- Header -->
-        <div class="card-header text-center fw-bold">
-            Build & Run Chat
+        <div class="card-header d-flex align-items-center">
+            <div class="d-flex gap-2" style="min-width: 220px;">
+                <a class="btn btn-sm btn-primary" href="#" role="button" id="connect">Connect &raquo;</a>
+                <a class="btn btn-sm btn-primary disabled" href="#" role="button" id="disconnect">Disconnect &raquo;</a>
+            </div>
+            <div class="fw-bold me-auto">Build &amp; Run Chat</div>
         </div>
 
         <!-- Messages -->
         <div id="chat-box" class="card-body overflow-auto" style="background-color:#f8f9fa;">
             <ul id="livechat" class="list-unstyled mb-0"></ul>
-        </div>
-
-        <!--Toggle Button to connect-->
-        <div class="card-header text-center fw-bold">
-                <a class="btn btn-lg btn-primary" href="#" role="button" id="connect">Connect
-                &raquo;</a>
-            <a class="btn btn-lg btn-primary disabled" href="#" role="button" id="disconnect">Disconnect
-                    &raquo;</a>
         </div>
 
         <!-- Input -->
